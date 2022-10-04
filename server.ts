@@ -7,7 +7,13 @@ import passport from "passport";
 import session from "express-session";
 import connectDB from "./config/db";
 import MongoStore from "connect-mongo";
-import { formatDate, truncate, stripTags, editIcon } from "./helpers/hbs";
+import {
+  formatDate,
+  truncate,
+  stripTags,
+  editIcon,
+  select,
+} from "./helpers/hbs";
 import authRoute from "./routes";
 import auth from "./routes/auth";
 import stories from "./routes/stories";
@@ -27,7 +33,7 @@ if (process.env.NODE_ENV === "development") {
 app.engine(
   ".hbs",
   engine({
-    helpers: { formatDate, truncate, stripTags, editIcon },
+    helpers: { formatDate, truncate, stripTags, editIcon, select },
     defaultLayout: "main",
     extname: ".hbs",
     layoutsDir: "views/layout",

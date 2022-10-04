@@ -28,11 +28,21 @@ export const editIcon = (
 ) => {
   if (storyUser._id.toString() == loggedUser._id.toString()) {
     if (floating) {
-      return `<a href="/stories/edit/${storyId}" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-primary p-2"><i class="fas fa-edit fa-small"></i></a>`;
+      return `<a href="/stories/${storyId}" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-primary p-2"><i class="fas fa-edit fa-small"></i></a>`;
     } else {
-      return `<a href="/stories/edit/${storyId}"><i class="fas fa-edit"></i></a>`;
+      return `<a href="/stories/${storyId}"><i class="fas fa-edit"></i></a>`;
     }
   } else {
     return "";
   }
+};
+
+export const select = (selected: any, options: any) => {
+  return options
+    .fn(this)
+    .replace(new RegExp(' value="' + selected + '"'), '$& selected="selected"')
+    .replace(
+      new RegExp(">" + selected + "</option>"),
+      ' selected="selected"$&'
+    );
 };

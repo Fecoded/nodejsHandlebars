@@ -17,7 +17,7 @@ function passportAuth(passport: any) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_KEY,
-        callbackURL: process.env.GOOGLE_CALLBACK_UR,
+        callbackURL: process.env.GOOGLE_CALLBACK_URL,
       },
       async (
         accessToken: string,
